@@ -5,6 +5,7 @@ print('Lets go!')
 userEmail = ('AngieAutoQA@yahoo.com')
 userPassword = ('YUopty1!')
 
+
 browser = webdriver.Firefox()
 browser.get('https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com')
 
@@ -16,16 +17,34 @@ emailElem.send_keys(userEmail)
 passwordElem = browser.find_element_by_id('login-passwd')
 passwordElem.send_keys(userPassword)
 
-#click sign in button
 signInElem = browser.find_element_by_id('login-signin')
 signInElem.click()
 
+print('Who do you want to email?')
+userSend = raw_input()
+print('What do you want your subject to be?')
+userSubject = raw_input()
+print('Type your message and hit Enter!')
+userMessage = raw_input()
+
 #click compose
-buttonElem = browser.find_element_by_id('yui_3_16_0_1_1453316166049_1561')
-buttonElem.click()
 
-#click in text box
+composeElem = browser.find_element_by_id('Compose')
+composeElem.click()
 
-#print string
+#click recipient and input
+toElem = browser.find_element_by_id('to-field')
+toElem.send_keys(userSend)
+WebElement.sendKeys(Keys.RETURN);
+
+subElem = browser.find_element_by_id('subject-field')
+subElem.send_keys(userSubject)
 
 #input string
+messageElem = browser.find_element_by_id('rtetext')
+messageElem.click()
+messageElem.send_keys(userMessage)
+
+#send!
+sendElem = browser.find_element_by_class_name('default')
+sendElem.click()
