@@ -23,6 +23,7 @@ signInElem.click()
 
 print('Who do you want to email?')
 userSend = raw_input()
+
 print('What do you want your subject to be?')
 userSubject = raw_input()
 print('Type your message and hit Enter!')
